@@ -1,0 +1,17 @@
+.movie-details-section .tab-content .content {
+    display: none;
+}
+
+#tab-1:checked ~ .tab-content .content-1,
+#tab-2:checked ~ .tab-content .content-2,
+#tab-3:checked ~ .tab-content .content-3 {
+    display: block;
+}
+
+#tab-1:checked ~ .tab-labels label[for="tab-1"],
+#tab-2:checked ~ .tab-labels label[for="tab-2"],
+#tab-3:checked ~ .tab-labels label[for="tab-3"] {
+    background-color: #dc3545;
+    color: #ffffff;
+    border-color: #dc3545;
+}
