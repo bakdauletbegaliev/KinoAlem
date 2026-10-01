@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KinoAlem — Movies</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-danger fs-3" href="index.html">KinoAlem</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="movies.html">Movies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-5">
+        <h1 class="text-center mb-4 text-white">Movie Catalog</h1>
+
+        
+
+        <input type="checkbox" id="filter-action" class="d-none">
+        <input type="checkbox" id="filter-drama" class="d-none">
+        <input type="checkbox" id="filter-sci-fi" class="d-none">
+
+        <div class="btn-group gap-2 mb-4 d-flex justify-content-center" role="group">
+            <label for="filter-action" class="btn btn-outline-danger">Biography</label>
+            <label for="filter-drama" class="btn btn-outline-danger">Drama</label>
+            <label for="filter-sci-fi" class="btn btn-outline-danger">Sci-Fi</label>
+        </div>
+
+
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 movie-grid">
+            <div class="col movie-card action">
+                <div class="card h-100 bg-dark text-white border-secondary">
+                    <img src="images/ninetyone.jpg" class="card-img-top" alt="Ninety One">
+                    <div class="card-body">
+                        <span class="badge bg-danger mb-2">Biography</span>
+                        <h5 class="card-title">NinetyOne</h5>
+                        <p class="card-text text-muted">A story of how the boy band Ninety One broke societal stereotypes and revolutionized Kazakh music.</p>
+                        <a href="movie-details.html" class="btn btn-sm btn-danger">Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col movie-card drama">
+                <div class="card h-100 bg-dark text-white border-secondary">
+                    <img src="images/shal.jpg" class="card-img-top" alt="Shal">
+                    <div class="card-body">
+                        <span class="badge bg-primary mb-2">Drama</span>
+                        <h5 class="card-title">Shal</h5>
+                        <p class="card-text text-muted">An elderly shepherd fights for survival against a wolf pack in the brutal Kazakh steppe.</p>
+                        <a href="movie-details-shal.html" class="btn btn-sm btn-danger">Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col movie-card sci-fi">
+                <div class="card h-100 bg-dark text-white border-secondary">
+                    <img src="images/zamanback.jpg" class="card-img-top" alt="Zamanback">
+                    <div class="card-body">
+                        <span class="badge bg-info text-dark mb-2">Sci-Fi</span>
+                        <h5 class="card-title">Zamanback</h5>
+                        <p class="card-text text-muted">A young man accidentally travels back to 1994 and tries to prevent his parents' wedding.</p>
+                        <a href="movie-details-zamanback.html" class="btn btn-sm btn-danger">Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-4 border-top border-secondary">
+        <div class="container">
+            <p class="mb-1">&copy; 2026 KinoAlem. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
