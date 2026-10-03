@@ -72,17 +72,28 @@ body {
     border-color: #dc3545;
 }
 
-#filter-action:checked ~ .movie-grid .movie-card:not(.action),
+#filter-biography:checked ~ .movie-grid .movie-card:not(.biography),
 #filter-drama:checked ~ .movie-grid .movie-card:not(.drama),
 #filter-sci-fi:checked ~ .movie-grid .movie-card:not(.sci-fi) {
     display: none;
 }
 
-#filter-action:checked ~ .btn-group label[for="filter-action"],
+#filter-biography:checked ~ .btn-group label[for="filter-biography"],
 #filter-drama:checked ~ .btn-group label[for="filter-drama"],
 #filter-sci-fi:checked ~ .btn-group label[for="filter-sci-fi"] {
     background-color: #dc3545;
     color: white;
+}
+
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.movie-grid .movie-card {
+    width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -91,5 +102,23 @@ body {
     }
     .tab-labels {
         flex-direction: column;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .tab-labels {
+        gap: 5px;
+    }
+    
+    .movie-grid {
+        grid-template-columns: 1fr;
     }
 }
