@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KinoAlem — Discover</title>
+    <link href="vendor/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-danger fs-3" href="index.html">KinoAlem</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="movies.html">Movies</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="discover.html">Discover</a></li>
+                        <li class="nav-item"><a class="nav-link" href="watchlist.html">Watchlist</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-5">
+<header class="section-intro"><p class="section-tag">Beyond Kazakhstan</p><h1>Discover TV series</h1><p>Look up a series by title and save it alongside your Kazakh film picks.</p></header>
+        <form id="series-search" class="panel mb-4">
+            <label for="series-title" class="form-label">Series title</label>
+            <div class="d-flex flex-wrap gap-2">
+                <input id="series-title" class="form-control flex-field" type="search" placeholder="Try Sherlock" required maxlength="80">
+                <button class="btn btn-danger">Search series</button>
+            </div>
+        </form>
+        <p id="series-status" role="status">Enter a title to search TVmaze.</p>
+        <section id="series-results" class="result-grid" aria-label="Search results"></section>
+        <p class="small mt-4">Series data from <a href="https://www.tvmaze.com/">TVmaze</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a></p>
+        <template id="series-card">
+            <article class="panel d-flex flex-column gap-2">
+                <span class="section-tag">TV series</span>
+                <h2 class="h4"></h2>
+                <p class="metadata"></p>
+                <p class="genres"></p>
+                <div class="mt-auto d-flex flex-wrap gap-2 align-items-center">
+                    <button class="btn btn-danger btn-sm">Save to watchlist</button>
+                    <a class="source-link">TVmaze details</a>
+                </div>
+            </article>
+        </template>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-4 border-top border-secondary">
+        <div class="container">
+            <p class="mb-1">&copy; 2026 KinoAlem. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="vendor/bootstrap.bundle.min.js"></script>
+<script src="team/Zhangir/storage.js"></script>
+    <script src="team/Bakdaulet/api.js"></script>
+    <script src="team/Bakdaulet/discover.js"></script>
+</body>
+</html>
