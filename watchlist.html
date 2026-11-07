@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KinoAlem — Watchlist</title>
+    <link href="vendor/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-danger fs-3" href="index.html">KinoAlem</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="movies.html">Movies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="discover.html">Discover</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="watchlist.html">Watchlist</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-5">
+<header class="section-intro"><p class="section-tag">Personal collection</p><h1>My watchlist</h1><p>Keep track of films and series you want to watch. Your notes stay in this browser.</p></header>
+        <div class="stats mb-4" aria-label="Watchlist statistics">
+            <div><strong id="total-count">0</strong>Total titles</div>
+            <div><strong id="planned-count">0</strong>Plan to watch</div>
+            <div><strong id="watched-count">0</strong>Watched</div>
+        </div>
+        <div class="d-flex flex-wrap justify-content-end mb-3">
+            <button id="clear-watchlist" type="button" class="btn btn-outline-light btn-sm">Clear all titles</button>
+        </div>
+        <p id="list-status" role="status" aria-live="polite"></p>
+        <p id="empty-list" class="panel">Your watchlist is empty. Choose a <a href="movies.html">Kazakh film</a> or <a href="discover.html">find a series</a> to get started.</p>
+        <section id="saved-titles" class="result-grid" aria-label="Saved titles"></section>
+        <template id="saved-card">
+            <article class="panel">
+                <p class="section-tag"></p><h2 class="h4"></h2>
+                <form>
+                    <label class="form-label d-block">Viewing status
+                        <select name="status" class="form-select mt-1">
+                            <option value="planned">Plan to watch</option>
+                            <option value="watched">Watched</option>
+                        </select>
+                    </label>
+                    <label class="form-label d-block mt-3">Personal note
+                        <textarea name="note" maxlength="160" rows="2" class="form-control mt-1" placeholder="Why is this on your list?"></textarea>
+                    </label>
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        <button class="btn btn-danger btn-sm">Save changes</button>
+                        <button type="button" class="remove btn btn-outline-light btn-sm">Remove</button>
+                    </div>
+                </form>
+            </article>
+        </template>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-4 border-top border-secondary">
+        <div class="container">
+            <p class="mb-1">&copy; 2026 KinoAlem. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="vendor/bootstrap.bundle.min.js"></script>
+    <script src="team/Zhangir/storage.js"></script>
+    <script src="team/Zhangir/watchlist.js"></script>
+</body>
+</html>
