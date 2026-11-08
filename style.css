@@ -1,13 +1,68 @@
-body {
-    background-color: #141414;
-    color: #ffffff;
-    font-family: sans-serif;
+:root {
+    --accent: #ebbb79;
+    --surface: #202220;
+    --line: #40413b;
+    --paper: #f3ece0;
 }
-
+body {
+    background: #161817;
+    color: var(--paper);
+    font-family: system-ui, sans-serif;
+}
+h1, h2, .card-title, .navbar-brand, .print-caption strong {
+    font-family: Georgia, "Times New Roman", serif;
+}
+.navbar, footer { background-color: #191b19 !important; }
+.navbar-brand.text-danger { color: var(--accent) !important; }
+.navbar-nav .nav-link.active { color: var(--accent); }
+.bg-dark { --bs-dark-rgb: 32, 34, 32; }
+.border-secondary { --bs-secondary-rgb: 64, 65, 59; }
+.btn-danger, .btn-outline-danger {
+    --bs-btn-hover-color: #211b14;
+    --bs-btn-hover-bg: #f4d1a4;
+    --bs-btn-hover-border-color: #f4d1a4;
+    --bs-btn-active-color: #211b14;
+    --bs-btn-active-bg: var(--accent);
+    --bs-btn-active-border-color: var(--accent);
+    --bs-btn-border-color: var(--accent);
+}
+.btn-danger { --bs-btn-color: #211b14; --bs-btn-bg: var(--accent); }
+.btn-outline-danger { --bs-btn-color: var(--accent); }
 .hero-section {
-    min-height: 70vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                url('images/kinoalemlogo.jpg') center/cover no-repeat;
+    padding: clamp(2rem, 5vw, 5rem) 0;
+    background: linear-gradient(110deg, #20251f, #30352c);
+    border-bottom: 1px solid var(--line);
+}
+.hero-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: clamp(2rem, 6vw, 6rem);
+}
+.hero-section h1 {
+    font-size: clamp(2.8rem, 6vw, 5.8rem);
+    line-height: 1;
+    letter-spacing: -.045em;
+}
+.hero-section h1 em { color: var(--accent); }
+.hero-description { max-width: 24rem; margin: 1.25rem 0; color: #d1d1c7; }
+.feature-print {
+    display: block;
+    padding: .65rem;
+    background: var(--paper);
+    color: #262720;
+    text-decoration: none;
+    box-shadow: .45rem .45rem 0 #131612;
+}
+.feature-print img { display: block; width: 100%; height: auto; }
+.print-caption { display: flex; justify-content: space-between; align-items: center; padding: .75rem .4rem .2rem; }
+.print-label { display: block; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; }
+.print-caption strong { font-size: 1.7rem; line-height: 1.1; }
+.print-year { text-align: right; font-size: .8rem; }
+.movie-card .card { overflow: hidden; }
+@media (max-width: 767px) {
+    .hero-layout { grid-template-columns: 1fr; gap: 1.75rem; }
+    .feature-print { max-width: 32rem; }
 }
 
 .modal-target {
@@ -46,7 +101,7 @@ body {
     right: -15px;
     width: 35px;
     height: 35px;
-    background: #dc3545;
+    background: var(--accent);
     color: #fff;
     border-radius: 50%;
     text-align: center;
@@ -68,38 +123,38 @@ body {
 #tab-1:checked ~ .tab-labels label[for="tab-1"],
 #tab-2:checked ~ .tab-labels label[for="tab-2"],
 #tab-3:checked ~ .tab-labels label[for="tab-3"] {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: var(--accent);
+    color: #211b14;
+    border-color: var(--accent);
 }
 
-#filter-biography:checked ~ .movie-grid .movie-card:not(.biography),
-#filter-drama:checked ~ .movie-grid .movie-card:not(.drama),
-#filter-sci-fi:checked ~ .movie-grid .movie-card:not(.sci-fi) {
-    display: none;
-}
+.genre-filter-wrapper:has(input:checked) .movie-card { display: none; }
+#filter-biography:checked ~ .movie-grid .biography,
+#filter-drama:checked ~ .movie-grid .drama,
+#filter-sci-fi:checked ~ .movie-grid .sci-fi { display: block; }
 
 #filter-biography:checked ~ .btn-group label[for="filter-biography"],
 #filter-drama:checked ~ .btn-group label[for="filter-drama"],
 #filter-sci-fi:checked ~ .btn-group label[for="filter-sci-fi"] {
-    background-color: #dc3545;
-    color: white;
+    background-color: var(--accent);
+    color: #211b14;
 }
 
 
 .movie-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 1.25rem;
+    margin: 0;
 }
 
 .movie-grid .movie-card {
     width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 @media (max-width: 768px) {
-    .hero-section h1 {
-        font-size: 2rem;
-    }
     .tab-labels {
         flex-direction: column;
     }
@@ -110,9 +165,6 @@ body {
 }
 
 @media (max-width: 576px) {
-    .hero-section h1 {
-        font-size: 1.5rem;
-    }
 
     .tab-labels {
         gap: 5px;
@@ -122,3 +174,28 @@ body {
         grid-template-columns: 1fr;
     }
 }
+.section-intro { max-width: 44rem; margin-bottom: 2rem; }
+.section-intro h1 { font-weight: 700; }
+.section-intro p:last-child, .metadata { color: #c3c4c8; }
+.section-tag { color: var(--accent); text-transform: uppercase; font-size: .76rem; letter-spacing: .12em; font-weight: bold; margin-bottom: .4rem; }
+.panel, .stats > div { background: var(--surface); border: 1px solid var(--line); border-radius: .6rem; padding: 1.25rem; }
+.catalog-controls { display: grid; grid-template-columns: 2fr 1fr 1fr auto; align-items: end; gap: 1rem; }
+.flex-field { flex: 1 1 14rem; }
+.result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 1rem; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; }
+.stats strong { display: block; font-size: 1.6rem; }
+.movie-grid .card-img-top { aspect-ratio: 16 / 9; object-fit: cover; }
+.movie-card[hidden] { display: none; }
+@media (max-width: 767px) {
+    .catalog-controls { grid-template-columns: 1fr 1fr; }
+    .stats > div { padding: .75rem; }
+}
+@media (max-width: 430px) {
+    .catalog-controls { grid-template-columns: 1fr; }
+}
+
+#no-matches { border-color: var(--accent); }
+#quick-view { border-color: var(--accent); }
+#filter-help { max-width: 50rem; }
+.form-control.is-invalid, .form-select.is-invalid { border-color: #f28a87; }
+.invalid-feedback { color: #ffb0ab; }
