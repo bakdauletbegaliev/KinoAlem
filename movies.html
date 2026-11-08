@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KinoAlem — Movies</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
             <div class="container">
                 <a class="navbar-brand fw-bold text-danger fs-3" href="index.html">KinoAlem</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -21,6 +21,8 @@
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                         <li class="nav-item"><a class="nav-link active" href="movies.html">Movies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="discover.html">Discover</a></li>
+                        <li class="nav-item"><a class="nav-link" href="watchlist.html">Watchlist</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -29,24 +31,31 @@
     </header>
 
     <main class="container py-5">
-        <h1 class="text-center mb-4 text-white">Movie Catalog</h1>
-
-
-
-        <input type="checkbox" id="filter-biography" class="d-none">
-        <input type="checkbox" id="filter-drama" class="d-none">
-        <input type="checkbox" id="filter-sci-fi" class="d-none">
-
-        <div class="btn-group gap-2 mb-4 d-flex justify-content-center" role="group">
-            <label for="filter-biography" class="btn btn-outline-danger">Biography</label>
-            <label for="filter-drama" class="btn btn-outline-danger">Drama</label>
-            <label for="filter-sci-fi" class="btn btn-outline-danger">Sci-Fi</label>
+<header class="section-intro"><p class="section-tag">Made in Kazakhstan</p><h1>Movie catalog</h1><p>Find a film by name or genre, then open its story or save it for later.</p></header>
+        <form id="catalog-controls" class="panel catalog-controls mb-4">
+            <label>Title<input id="movie-query" class="form-control mt-1" type="search" placeholder="Search films"></label>
+            <label>Genre<select id="movie-genre" class="form-select mt-1">
+                <option value="">All genres</option><option>Biography</option><option>Drama</option><option>Sci-Fi</option>
+            </select></label>
+            <label>Sort by<select id="movie-sort" class="form-select mt-1">
+                <option value="original">Featured</option><option value="title">Title A–Z</option><option value="year">Newest first</option>
+            </select></label>
+            <button type="reset" class="btn btn-outline-light">Reset</button>
+        </form>
+        <div class="d-flex align-items-center flex-wrap gap-2 mb-3">
+            <button type="button" id="filter-help-button" class="btn btn-outline-light btn-sm" aria-expanded="false" aria-controls="filter-help">How do filters work?</button>
         </div>
-
-
-
+        <p id="filter-help" class="panel small" style="display: none;">Search by title, choose a genre, and sort the results. All filters work together. Use Reset to show every movie.</p>
+        <p id="catalog-status" role="status" aria-live="polite"></p>
+        <p id="no-matches" class="panel" style="display: none;">No films match these filters. Change your search or click Reset.</p>
+        <p id="save-status" role="status" class="mb-2"></p>
+        <section id="quick-view" class="panel mb-4" style="display: none;" aria-label="Movie preview">
+            <h2 id="quick-title" class="h4"></h2>
+            <p id="quick-description"></p>
+            <button id="close-quick-view" type="button" class="btn btn-sm btn-outline-light">Close preview</button>
+        </section>
         <div class="row row-cols-1 row-cols-md-3 g-4 movie-grid">
-            <div class="col movie-card biography">
+            <div class="col movie-card biography" data-id="ninetyone" data-year="2017">
                 <div class="card h-100 bg-dark text-white border-secondary">
                     <img src="images/ninetyone.jpg" class="card-img-top" alt="Ninety One">
                     <div class="card-body">
@@ -54,11 +63,13 @@
                         <h5 class="card-title">NinetyOne</h5>
                         <p class="card-text text-muted">A story of how the boy band Ninety One broke societal stereotypes and revolutionized Kazakh music.</p>
                         <a href="movie-details.html" class="btn btn-sm btn-danger">Details</a>
+                        <button type="button" class="save btn btn-sm btn-outline-light">Save to watchlist</button>
+                        <button type="button" class="quick-info btn btn-sm btn-outline-light">Quick preview</button>
                     </div>
                 </div>
             </div>
 
-            <div class="col movie-card drama">
+            <div class="col movie-card drama" data-id="shal" data-year="2012">
                 <div class="card h-100 bg-dark text-white border-secondary">
                     <img src="images/shal.jpg" class="card-img-top" alt="Shal">
                     <div class="card-body">
@@ -66,11 +77,13 @@
                         <h5 class="card-title">Shal</h5>
                         <p class="card-text text-muted">An elderly shepherd fights for survival against a wolf pack in the brutal Kazakh steppe.</p>
                         <a href="movie-details-shal.html" class="btn btn-sm btn-danger">Details</a>
+                        <button type="button" class="save btn btn-sm btn-outline-light">Save to watchlist</button>
+                        <button type="button" class="quick-info btn btn-sm btn-outline-light">Quick preview</button>
                     </div>
                 </div>
             </div>
 
-            <div class="col movie-card sci-fi">
+            <div class="col movie-card sci-fi" data-id="zamanback" data-year="2023">
                 <div class="card h-100 bg-dark text-white border-secondary">
                     <img src="images/zamanback.jpg" class="card-img-top" alt="Zamanback">
                     <div class="card-body">
@@ -78,6 +91,8 @@
                         <h5 class="card-title">Zamanback</h5>
                         <p class="card-text text-muted">A young man accidentally travels back to 1994 and tries to prevent his parents' wedding.</p>
                         <a href="movie-details-zamanback.html" class="btn btn-sm btn-danger">Details</a>
+                        <button type="button" class="save btn btn-sm btn-outline-light">Save to watchlist</button>
+                        <button type="button" class="quick-info btn btn-sm btn-outline-light">Quick preview</button>
                     </div>
                 </div>
             </div>
@@ -90,6 +105,10 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery.min.js"></script>
+        <script src="team/Zhangir/storage.js"></script>
+    <script src="team/Dias/movie.js"></script>
+    <script src="team/Dias/catalog.js"></script>
 </body>
 </html>
