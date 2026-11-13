@@ -93,33 +93,3 @@ Key: `kinoalem.watchlist.v1`. Each saved entry contains an `id`, `title`, `type`
 
 Every member must be able to explain the **entire website**, not only their own files. Individual defence guides are in each `team/<name>/DEFENSE.md`.
 
-## Testing before submission
-
-1. **All pages:** Click Home, About, Movies, Discover, Watchlist, Contact, and the three film Details links. Check the mobile navigation and the detail-page tabs.
-2. **Movies:** Search `Shal`, choose `Drama`, then choose `Sci-Fi` to display no matches. Reset and sort by year. Open and close Quick preview and the filter-help panel.
-3. **jQuery:** Explain the `.movie-grid .movie-card` selector, `.closest()` and `.find()`, the two animation families, and the `input`, `change` and `click` events.
-4. **Contact:** Submit empty fields, then an invalid email, a one-character name and a short message. Check that each error appears under its field. Correct them and submit to see success.
-5. **Watchlist:** Save a film twice (only one copy should appear). Change its status and note, refresh, delete it, then add another and try Clear all.
-6. **API:** Search `Sherlock`; search a nonsense string; turn the Network tab Offline in DevTools and search again; turn it Online and retry.
-7. **Console:** Check for errors during normal use, including on a narrow phone-sized window.
-
-See `TEST_CHECKLIST.md` for manual end-to-end checks. Mock API tests do not replace testing TVmaze over a real internet connection.
-
-## Publish the final version
-
-The repository owner should copy **the contents inside this `KinoAlem` folder** to the root of the existing repository. Keep the existing `.git` directory; do not create a new unrelated repository.
-
-```powershell
-git status
-git add .
-git commit -m "Complete final project requirements and testing"
-git push origin main
-```
-
-In GitHub → Settings → Pages, deploy from `main` and `/ (root)` (or the repository's actual configured branch). After the new version is live, check Discover, Watchlist, form validation, all links and console errors. The team must carry out this publishing step; it is not included in the ZIP.
-
-## Continuation and submission history
-
-The provided source package described commit `185c801` as an earlier HTML/Bootstrap baseline. **That is not proof that it was the exact Endterm submission.** The teacher requests five substantial features added *after* Endterm. Compare this final folder with the actual submitted Endterm commit or ZIP and clearly identify the five genuinely new features. Do not claim a feature was added after Endterm if it already existed there. Preserve the previous project, topic and group in the same repository.
-
-See `CRITERIA_CHECKLIST.md` for a compact mapping of each requirement to its implementation.
